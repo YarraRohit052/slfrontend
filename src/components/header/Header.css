@@ -1,0 +1,148 @@
+.head {
+    font-size: 30px;
+    background: linear-gradient(180deg, #00dbde, #fc00ff,rgb(222, 15, 15));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+    text-align: center;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: bolder;
+}
+
+
+.row {
+    height: 4.5rem;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    text-align: center;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .head {
+        font-size: 10px;
+        background: linear-gradient(90deg, #00dbde, #fc00ff,rgb(222, 15, 15));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 900;
+        text-align: center;
+        font-family: "Lucida Console", "Courier New", monospace;}
+
+    .span__text {
+        font-size: 10px;
+    }
+
+    .row {
+        background-color: ghostwhite;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 611px) and (max-width: 767px) {
+    .row {
+        background-color: ghostwhite;
+    }
+
+    .head {
+        font-size: 15px;
+        background: linear-gradient(90deg, #00dbde, #fc00ff,rgb(222, 15, 15));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 900;
+        text-align: center;
+        font-family: "Lucida Console", "Courier New", monospace;}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 900px) {
+    .head {
+        background-color: ghostwhite !important;
+        font-size: 15px;
+    }
+
+    .row {
+        background-color: ghostwhite;
+    }
+}
+
+@media only screen and (min-width: 912px) and (max-width: 984px) {
+    .row {
+        background-color: ghostwhite;
+    }
+
+    .head {
+        background-color: ghostwhite !important;
+        font-size: 18px;
+    }
+
+}
+
+@media only screen and (min-width: 280px) and (max-width: 400px) {
+    .row {
+        background-color: ghostwhite;
+    }
+
+    .head {
+        background-color: ghostwhite !important;
+        font-size: 12px;
+    }
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .head {
+        font-size: 22px;
+        background: linear-gradient(90deg, #00dbde, #fc00ff,rgb(222, 15, 15));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 900;
+        text-align: center;
+        font-family: "Lucida Console", "Courier New", monospace;}
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1000px) {
+    .rainbow-p-around_medium {
+        margin: auto;
+        width: 90px !important;
+    }
+
+    .row {
+        background-color: ghostwhite;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .rainbow-p-around_medium {
+        margin: auto;
+        width: auto;
+    }
+
+    .head {
+        font-size: 25px;
+        background: linear-gradient(90deg, #00dbde, #fc00ff,rgb(222, 15, 15));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 900;
+        text-align: center;
+        font-family: "Lucida Console", "Courier New", monospace;}
+
+    .row {
+        background-color: ghostwhite;
+    }
+}

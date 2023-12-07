@@ -1,0 +1,65 @@
+.side__drawer{
+    min-width: 300px !important;
+}
+.containerStyles{
+    margin-bottom: 1rem;
+}
+.east{
+    overflow-y: scroll;
+    width: auto;
+    height: auto;
+}
+.sub-elements{
+    color: rgb(1, 182, 245);
+}
+.qCezS .rainbow-vertical-item_action {
+    font-size: 20px;
+    color: rgb(1, 182, 245);
+}
+.dJCfnt {
+    font-size: 25px !important;
+}
+#Districts{
+    top: 4rem;
+}
+.sub__items{
+    margin-left: 4rem;
+}
+@media only screen and (max-width: 600px) {
+    #Districts{
+        top: 4rem;
+    }
+    .side__drawer{
+        width: 70% !important;
+        max-width: 70% !important;
+    }
+ }
+@media only screen and (min-width: 600px) { }
+@media only screen and (min-width: 768px) {
+    #experiments{
+        top: 4.5rem;
+    }
+    .side__drawer{
+        width: 40% !important;
+        max-width: 40% !important;
+    }
+ }
+@media only screen and (min-width: 992px) { 
+    .side__drawer{
+        width: 30% !important;
+        max-width: 30% !important;
+    }
+}
+@media only screen and (min-width: 1200px) { }
+@media only screen and (min-width: 1400px) {
+    .side__drawer{
+        width: 25% !important;
+        max-width: 25% !important;
+    }
+ }
+ @media only screen and (min-width: 1600px) {
+    .side__drawer{
+        width: 20% !important;
+        max-width: 20% !important;
+    }
+ }
