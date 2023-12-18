@@ -2,23 +2,46 @@ import "./Templeroad.css";
 import { Card } from 'react-rainbow-components';
 import pole from "../../images/pole.jpeg"
 import { Input } from "react-rainbow-components";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 const Templeroad = () => {
-    const [templeroadvoltage1, setTempleroadvoltage1] = useState();
-    const [templeroadvoltage2, setTempleroadvoltage2] = useState();
-    const [templeroadvoltage3, setTempleroadvoltage3] = useState();
-    const alertIsTrue1 = (templeroadvoltage1 === "offline") || (templeroadvoltage1 === "Offline");
-    const alertIsTrue2 = (templeroadvoltage2 === "offline") || (templeroadvoltage2 === "Offline");
-    const alertIsTrue3 = (templeroadvoltage3 === "offline") || (templeroadvoltage3 === "Offline");
+    const [kotipallivoltage1, setKotipallivoltage1] = useState();
+    const [kotipallivoltage2, setKotipallivoltage2] = useState();
+    const [kotipallivoltage3, setKotipallivoltage3] = useState();
+    const [kotipallicurrent, setKotipallicurrent] = useState(100);
+    const [kotipallipower, setKotipallipower] = useState(200);
+    const [kotipalliactivepower, setKotipalliactivepower] = useState(300);
+    const [kotipallireactivepower, setKotipallireactivepower] = useState(400);
+    const [kotipallipowerfactor, setKotipallipowerfactor] = useState(500);
+    const [kotipallifrequency, setKotipallifrequency] = useState(600);
+    const [latitudekotipalli1, setLatitudekotipalli1] = useState();
+    const [longitudekotipalli1, setLongitudekotipalli1] = useState();
+    const [latitudekotipalli2, setLatitudekotipalli2] = useState();
+    const [longitudekotipalli2, setLongitudekotipalli2] = useState();
+    const [latitudekotipalli3, setLatitudekotipalli3] = useState();
+    const [longitudekotipalli3, setLongitudekotipalli3] = useState();
+    const alertIsTrue1 = (kotipallivoltage1 === "offline") || (kotipallivoltage1 === "Offline");
+    const alertIsTrue2 = (kotipallivoltage2 === "offline") || (kotipallivoltage2 === "Offline");
+    const alertIsTrue3 = (kotipallivoltage3 === "offline") || (kotipallivoltage3 === "Offline");
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch("https://backend-k2pf.onrender.com/api/sensordata");
+                const response = await fetch("https://slbackend.onrender.com/api/sensordata");
                 const data = await response.json();
-                setTempleroadvoltage1(data.templeroadvoltage1);
-                setTempleroadvoltage2(data.templeroadvoltage2);
-                setTempleroadvoltage3(data.templeroadvoltage3);
-                console.log(data);
+                setKotipallivoltage1(data.kotipallivoltage1);
+                setKotipallivoltage2(data.kotipallivoltage2);
+                setKotipallivoltage3(data.kotipallivoltage3);
+                setKotipallicurrent(data.kotipallicurrent);
+                setKotipallipower(data.kotipallipower);
+                setKotipalliactivepower(data.kotipalliactivepower);
+                setKotipallireactivepower(data.kotipallireactivepower);
+                setKotipallipowerfactor(data.kotipallipowerfactor);
+                setKotipallifrequency(data.kotipallifrequency);
+                setLatitudekotipalli1(data.latitudekotipalli1);
+                setLatitudekotipalli2(data.latitudekotipalli2);
+                setLatitudekotipalli3(data.latitudekotipalli3);
+                setLongitudekotipalli1(data.longitudekotipalli1);
+                setLongitudekotipalli2(data.longitudekotipalli2);
+                setLongitudekotipalli3(data.longitudekotipalli3)
             } catch (error) {
                 console.error(error);
             }
@@ -31,11 +54,11 @@ const Templeroad = () => {
     return (
         <div >
             <Card className="show__card">
-                <p className="temple__road__text">Temple Road</p>
+                <p className="temple__road__text">Godavari Road</p>
                 <div className="row card__row">
                     <div className="row card__row">
                         <div className="col-12 col-md-4  mb-3">
-                        <div className="sub__box" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                            <div className="sub__box" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                                 <p className="card__top street-light-animation" style={{ margin: '0', position: 'relative', width: '150px', height: '150px' }}>
                                     <img
                                         src={pole}
@@ -54,7 +77,7 @@ const Templeroad = () => {
                                         <li className="list-group-item text-center">
                                             <span className="input-label">Voltage</span>
                                             <Input
-                                                value={templeroadvoltage1 || "offline" || "Offline"}
+                                                value={kotipallivoltage1 || "offline" || "Offline"}
                                                 type="text"
                                                 className="rainbow-p-around_medium text-center box"
                                                 disabled={true}
@@ -63,7 +86,7 @@ const Templeroad = () => {
                                         <li className="list-group-item text-center">
                                             <span className="input-label">Status</span>
                                             <Input
-                                                value={(templeroadvoltage1 === "Offline" || templeroadvoltage1 === "offline") ? "Not Working" : "Working"}
+                                                value={(kotipallivoltage1 === "Offline" || kotipallivoltage1 === "offline") ? "Not Working" : "Working"}
                                                 type="text"
                                                 className="rainbow-p-around_medium text-center box input__container"
                                                 disabled={true}
@@ -88,14 +111,21 @@ const Templeroad = () => {
                                                                     textShadow: alertIsTrue1 ? '1px 1px 2px white, 0 0 25px white, 0 0 5px white, 0 0 10px white' : '1px 1px 2px black, 0 0 25px black, 0 0 5px black, 0 0 10px black',
                                                                 }}
                                                             >
-                                                                {(templeroadvoltage1 === "offline") || (templeroadvoltage1 === "Offline") ? 'OFF' : 'ON'}
+                                                                {(kotipallivoltage1 === "offline") || (kotipallivoltage1 === "Offline") ? 'OFF' : 'ON'}
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {templeroadvoltage1 === "offline" || templeroadvoltage1 === "Offline" ? (
-                                                        <a href="https://maps.app.goo.gl/awa2EBAdMpCGPKe19" target="_blank" rel="noopener noreferrer" className="fault__text">
-                                                            View Fault Location
-                                                        </a>
+                                                    {kotipallivoltage1 === "offline" || kotipallivoltage1 === "Offline" ? (
+                                                        <>
+                                                            <a
+                                                                href={`https://maps.google.com/?q=${latitudekotipalli1},${longitudekotipalli1}`}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className="fault__text"
+                                                            >
+                                                                View Fault Location
+                                                            </a>
+                                                        </>
                                                     ) : null}
                                                 </div>
                                             </div>
@@ -105,7 +135,7 @@ const Templeroad = () => {
                             </div>
                         </div>
                         <div className="col-12 col-md-4  mb-3">
-                        <div className="sub__box" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                            <div className="sub__box" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                                 <p className="card__top street-light-animation" style={{ margin: '0', position: 'relative', width: '150px', height: '150px' }}>
                                     <img
                                         src={pole}
@@ -124,7 +154,7 @@ const Templeroad = () => {
                                         <li className="list-group-item text-center">
                                             <span className="input-label">Voltage</span>
                                             <Input
-                                                value={templeroadvoltage2 || "offline" || "Offline"}
+                                                value={kotipallivoltage2 || "offline" || "Offline"}
                                                 type="text"
                                                 className="rainbow-p-around_medium text-center box"
                                                 disabled={true}
@@ -133,7 +163,7 @@ const Templeroad = () => {
                                         <li className="list-group-item text-center">
                                             <span className="input-label">Status</span>
                                             <Input
-                                                value={(templeroadvoltage2 === "Offline" || templeroadvoltage2 === "offline") ? "Not Working" : "Working"}
+                                                value={(kotipallivoltage2 === "Offline" || kotipallivoltage2 === "offline") ? "Not Working" : "Working"}
                                                 type="text"
                                                 className="rainbow-p-around_medium text-center box input__container"
                                                 disabled={true}
@@ -158,14 +188,21 @@ const Templeroad = () => {
                                                                     textShadow: alertIsTrue2 ? '1px 1px 2px white, 0 0 25px white, 0 0 5px white, 0 0 10px white' : '1px 1px 2px black, 0 0 25px black, 0 0 5px black, 0 0 10px black',
                                                                 }}
                                                             >
-                                                                {(templeroadvoltage2 === "offline") || (templeroadvoltage2 === "Offline") ? 'OFF' : 'ON'}
+                                                                {(kotipallivoltage2 === "offline") || (kotipallivoltage2 === "Offline") ? 'OFF' : 'ON'}
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {templeroadvoltage2 === "offline" || templeroadvoltage2 === "Offline" ? (
-                                                        <a href="https://maps.app.goo.gl/S2nnM13L3nwj32fw7" target="_blank" rel="noopener noreferrer" className="fault__text">
-                                                            View Fault Location
-                                                        </a>
+                                                    {kotipallivoltage2 === "offline" || kotipallivoltage2 === "Offline" ? (
+                                                        <>
+                                                            <a
+                                                                href={`https://maps.google.com/?q=${latitudekotipalli2},${longitudekotipalli2}`}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className="fault__text"
+                                                            >
+                                                                View Fault Location
+                                                            </a>
+                                                        </>
                                                     ) : null}
                                                 </div>
                                             </div>
@@ -175,7 +212,7 @@ const Templeroad = () => {
                             </div>
                         </div>
                         <div className="col-12 col-md-4  mb-3">
-                        <div className="sub__box" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                            <div className="sub__box" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                                 <p className="card__top street-light-animation" style={{ margin: '0', position: 'relative', width: '150px', height: '150px' }}>
                                     <img
                                         src={pole}
@@ -194,7 +231,7 @@ const Templeroad = () => {
                                         <li className="list-group-item text-center">
                                             <span className="input-label">Voltage</span>
                                             <Input
-                                                value={templeroadvoltage3 || "offline" || "Offline"}
+                                                value={kotipallivoltage3 || "offline" || "Offline"}
                                                 type="text"
                                                 className="rainbow-p-around_medium text-center box"
                                                 disabled={true}
@@ -203,7 +240,7 @@ const Templeroad = () => {
                                         <li className="list-group-item text-center">
                                             <span className="input-label">Status</span>
                                             <Input
-                                                value={(templeroadvoltage3 === "Offline" || templeroadvoltage3 === "offline") ? "Not Working" : "Working"}
+                                                value={(kotipallivoltage3 === "Offline" || kotipallivoltage3 === "offline") ? "Not Working" : "Working"}
                                                 type="text"
                                                 className="rainbow-p-around_medium text-center box input__container"
                                                 disabled={true}
@@ -228,20 +265,94 @@ const Templeroad = () => {
                                                                     textShadow: alertIsTrue3 ? '1px 1px 2px white, 0 0 25px white, 0 0 5px white, 0 0 10px white' : '1px 1px 2px black, 0 0 25px black, 0 0 5px black, 0 0 10px black',
                                                                 }}
                                                             >
-                                                                {(templeroadvoltage3 === "offline") || (templeroadvoltage3=== "Offline") ? 'OFF' : 'ON'}
+                                                                {(kotipallivoltage3 === "offline") || (kotipallivoltage3 === "Offline") ? 'OFF' : 'ON'}
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {templeroadvoltage3 === "offline" || templeroadvoltage3 === "Offline" ? (
-                                                        <a href="https://maps.app.goo.gl/2RMBYPnwLEA6NUzHA" target="_blank" rel="noopener noreferrer" className="fault__text">
-                                                            View Fault Location
-                                                        </a>
+                                                    {kotipallivoltage3 === "offline" || kotipallivoltage3 === "Offline" ? (
+                                                        <>
+                                                            <a
+                                                                href={`https://maps.google.com/?q=${latitudekotipalli3},${longitudekotipalli3}`}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className="fault__text"
+                                                            >
+                                                                View Fault Location
+                                                            </a>
+                                                        </>
                                                     ) : null}
                                                 </div>
                                             </div>
                                         </li>
                                     </ul>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Card>
+            <Card className="show__card__total">
+                <p className="para__templeroad">Overall Street Data</p>
+                <div className="row card__row">
+                    <div className="col-12">
+                        <div className="sub__box" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                            <div className="card">
+                                <ul className="list-group list-group-flush list">
+                                    <li className="list-group-item text-center">
+                                        <span className="input-label">Current</span>
+                                        <Input
+                                            value={kotipallicurrent}
+                                            type="text"
+                                            className="rainbow-p-around_medium text-center box"
+                                            disabled={true}
+                                        />
+                                    </li>
+                                    <li className="list-group-item text-center">
+                                        <span className="input-label">Power</span>
+                                        <Input
+                                            value={kotipallipower}
+                                            type="text"
+                                            className="rainbow-p-around_medium text-center box input__container"
+                                            disabled={true}
+                                        />
+                                    </li>
+                                    <li className="list-group-item text-center">
+                                        <span className="input-label">Active Power</span>
+                                        <Input
+                                            value={kotipalliactivepower}
+                                            type="text"
+                                            className="rainbow-p-around_medium text-center box"
+                                            disabled={true}
+                                        />
+                                    </li>
+                                    <li className="list-group-item text-center">
+                                        <span className="input-label">Reactive Power</span>
+                                        <Input
+                                            value={kotipallireactivepower}
+                                            type="text"
+                                            className="rainbow-p-around_medium text-center box"
+                                            disabled={true}
+                                        />
+                                    </li>
+                                    <li className="list-group-item text-center">
+                                        <span className="input-label">Power Factor</span>
+                                        <Input
+                                            value={kotipallipowerfactor}
+                                            type="text"
+                                            className="rainbow-p-around_medium text-center box"
+                                            disabled={true}
+                                        />
+                                    </li>
+                                    <li className="list-group-item text-center">
+                                        <span className="input-label">Frequency</span>
+                                        <Input
+                                            value={kotipallifrequency}
+                                            type="text"
+                                            className="rainbow-p-around_medium text-center box"
+                                            disabled={true}
+                                        />
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>

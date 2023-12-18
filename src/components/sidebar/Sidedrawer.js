@@ -34,10 +34,10 @@ const Sidedrawer = (props) => {
     toggleDrawer();
   };
 
-  const rajahmundryNames = ["Kotipalli", "Narayanapuram", "Godavari Road"];
-  const amalapuramNames = ["Residential Road","Dommetivari Veedhi","APSRTC Bus Depo Road Amalapuram"];
-  const rajoleNames = ["Market Road", "APSRTC Bus Depo Road Rajole"];
-  const antarvediNames = ["Temple Road", "Beach Road", "Light house Road"];
+  const rajahmundryNames = ["I-Town", "II-Town", "III-Town"];
+  const amalapuramNames = ["Bus Stand","Market Yard","Akiveedu Road"];
+  const rajoleNames = ["Market Road", "Temple Road"];
+  const antarvediNames = ["Godavari Road", "Main Road", "Seetharampuram"];
 
   const handleBodyClick = (event) => {
     if (sideDrawerRef.current && !sideDrawerRef.current.contains(event.target)) {
@@ -60,13 +60,13 @@ const Sidedrawer = (props) => {
         ref={sideDrawerRef}
       >
         <VerticalNavigation id="vertical-navigation-11">
-          <VerticalSectionOverflow label="East Godavari" className="east">
+          <VerticalSectionOverflow label="West Godavari" className="east">
             <VerticalItem
               name="section-item-0"
-              label="Rajahmundry"
-              onClick={() => handleSectionClick("Rajahmundry")}
+              label="Bhimavaram"
+              onClick={() => handleSectionClick("Bhimavaram")}
             />
-            {selectedSection === "Rajahmundry" &&
+            {selectedSection === "Bhimavaram" &&
               rajahmundryNames.map((name, index) => (
                 <div key={index}>
                   <VerticalItem
@@ -80,10 +80,10 @@ const Sidedrawer = (props) => {
 
             <VerticalItem
               name="section-item-1"
-              label="Amalapuram"
-              onClick={() => handleSectionClick("Amalapuram")}
+              label="Undi"
+              onClick={() => handleSectionClick("Undi")}
             />
-            {selectedSection === "Amalapuram" &&
+            {selectedSection === "Undi" &&
               amalapuramNames.map((name, index) => (
                 <div key={index}>
                   <VerticalItem
@@ -97,10 +97,10 @@ const Sidedrawer = (props) => {
 
             <VerticalItem
               name="section-item-2"
-              label="Rajole"
-              onClick={() => handleSectionClick("Rajole")}
+              label="Palakol"
+              onClick={() => handleSectionClick("Palakol")}
             />
-            {selectedSection === "Rajole" &&
+            {selectedSection === "Palakol" &&
               rajoleNames.map((name, index) => (
                 <div key={index}>
                   <VerticalItem
@@ -114,10 +114,10 @@ const Sidedrawer = (props) => {
 
             <VerticalItem
               name="section-item-3"
-              label="Antarvedi"
-              onClick={() => handleSectionClick("Antarvedi")}
+              label="Narsapur"
+              onClick={() => handleSectionClick("Narsapur")}
             />
-            {selectedSection === "Antarvedi" &&
+            {selectedSection === "Narsapur" &&
               antarvediNames.map((name, index) => (
                 <div key={index}>
                   <VerticalItem

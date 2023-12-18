@@ -14,32 +14,32 @@ import Lighthouseroad from "./Lighthouseroad";
 
 const Bodycontent = ({ selectedItem }) => {
   const contentMap = {
-    Kotipalli: (
+    "I-Town": (
       <div>
         <Kotipalli />
       </div>
     ),
-    Narayanapuram: (
+    "II-Town": (
       <div>
         <Narayanapuram />
       </div>
     ),
-    "Godavari Road": (
+    "III-Town": (
       <div>
         <Godavariroadpage />
       </div>
     ),
-    "Residential Road": (
+    "Bus Stand": (
       <div>
         <ResidentialroadPage />
       </div>
     ),
-    "Dommetivari Veedhi": (
+    "Market Yard": (
       <div>
         <Dommetivariveedhi />
       </div>
     ),
-    "APSRTC Bus Depo Road Amalapuram": (
+    "Akiveedu Road": (
       <div>
         <Busdepoamalapuram />
       </div>
@@ -49,22 +49,22 @@ const Bodycontent = ({ selectedItem }) => {
         <Marketroad />
       </div>
     ),
-    "APSRTC Bus Depo Road Rajole": (
+    "Temple Road": (
       <div>
         <Busdeporajole />
       </div>
     ),
-    "Temple Road": (
+    "Godavari Road": (
       <div>
         <Templeroad />
       </div>
     ),
-    "Beach Road": (
+    "Main Road": (
       <div>
         <Beachroad />
       </div>
     ),
-    "Light house Road": (
+    "Seetharampuram": (
       <div>
         <Lighthouseroad />
       </div>

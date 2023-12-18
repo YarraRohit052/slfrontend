@@ -4,20 +4,44 @@ import { Input } from "react-rainbow-components";
 import pole from "../../images/pole.jpeg"
 import { useEffect, useState } from "react";
 const ResidentialroadPage = () => {
-    const [residentialvoltage1, setResidentialvoltage1] = useState();
-    const [residentialvoltage2, setResidentialvoltage2] = useState();
-    const [residentialvoltage3, setResidentialvoltage3] = useState();
-    const alertIsTrue1 = (residentialvoltage1 === "offline") || (residentialvoltage1 === "Offline");
-    const alertIsTrue2 = (residentialvoltage2 === "offline") || (residentialvoltage2 === "Offline");
-    const alertIsTrue3 = (residentialvoltage3 === "offline") || (residentialvoltage3 === "Offline");
+    const [kotipallivoltage1, setKotipallivoltage1] = useState();
+    const [kotipallivoltage2, setKotipallivoltage2] = useState();
+    const [kotipallivoltage3, setKotipallivoltage3] = useState();
+    const [kotipallicurrent, setKotipallicurrent] = useState(100);
+    const [kotipallipower, setKotipallipower] = useState(200);
+    const [kotipalliactivepower, setKotipalliactivepower] = useState(300);
+    const [kotipallireactivepower, setKotipallireactivepower] = useState(400);
+    const [kotipallipowerfactor, setKotipallipowerfactor] = useState(500);
+    const [kotipallifrequency, setKotipallifrequency] = useState(600);
+    const [latitudekotipalli1, setLatitudekotipalli1] = useState();
+    const [longitudekotipalli1, setLongitudekotipalli1] = useState();
+    const [latitudekotipalli2, setLatitudekotipalli2] = useState();
+    const [longitudekotipalli2, setLongitudekotipalli2] = useState();
+    const [latitudekotipalli3, setLatitudekotipalli3] = useState();
+    const [longitudekotipalli3, setLongitudekotipalli3] = useState();
+    const alertIsTrue1 = (kotipallivoltage1 === "offline") || (kotipallivoltage1 === "Offline");
+    const alertIsTrue2 = (kotipallivoltage2 === "offline") || (kotipallivoltage2 === "Offline");
+    const alertIsTrue3 = (kotipallivoltage3 === "offline") || (kotipallivoltage3 === "Offline");
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch("https://backend-k2pf.onrender.com/api/sensordata");
+                const response = await fetch("https://slbackend.onrender.com/api/sensordata");
                 const data = await response.json();
-                setResidentialvoltage1(data.residentialvoltage1);
-                setResidentialvoltage2(data.residentialvoltage2);
-                setResidentialvoltage3(data.residentialvoltage3);
+                setKotipallivoltage1(data.kotipallivoltage1);
+                setKotipallivoltage2(data.kotipallivoltage2);
+                setKotipallivoltage3(data.kotipallivoltage3);
+                setKotipallicurrent(data.kotipallicurrent);
+                setKotipallipower(data.kotipallipower);
+                setKotipalliactivepower(data.kotipalliactivepower);
+                setKotipallireactivepower(data.kotipallireactivepower);
+                setKotipallipowerfactor(data.kotipallipowerfactor);
+                setKotipallifrequency(data.kotipallifrequency);
+                setLatitudekotipalli1(data.latitudekotipalli1);
+                setLatitudekotipalli2(data.latitudekotipalli2);
+                setLatitudekotipalli3(data.latitudekotipalli3);
+                setLongitudekotipalli1(data.longitudekotipalli1);
+                setLongitudekotipalli2(data.longitudekotipalli2);
+                setLongitudekotipalli3(data.longitudekotipalli3)
             } catch (error) {
                 console.error(error);
             }
@@ -30,7 +54,7 @@ const ResidentialroadPage = () => {
     return (
         <div >
             <Card className="show__card">
-                <p className="residential__road__para">Residential Road Street</p>
+                <p className="residential__road__para">Bus Stand</p>
                 <div className="row card__row">
                     <div className="row card__row">
                         <div className="col-12 col-md-4  mb-3">
@@ -53,7 +77,7 @@ const ResidentialroadPage = () => {
                                         <li className="list-group-item text-center">
                                             <span className="input-label">Voltage</span>
                                             <Input
-                                                value={residentialvoltage1 || "offline" || "Offline"}
+                                                value={kotipallivoltage1 || "offline" || "Offline"}
                                                 type="text"
                                                 className="rainbow-p-around_medium text-center box"
                                                 disabled={true}
@@ -62,7 +86,7 @@ const ResidentialroadPage = () => {
                                         <li className="list-group-item text-center">
                                             <span className="input-label">Status</span>
                                             <Input
-                                                value={(residentialvoltage1 === "Offline" || residentialvoltage1 === "offline") ? "Not Working" : "Working"}
+                                                value={(kotipallivoltage1 === "Offline" || kotipallivoltage1 === "offline") ? "Not Working" : "Working"}
                                                 type="text"
                                                 className="rainbow-p-around_medium text-center box input__container"
                                                 disabled={true}
@@ -87,14 +111,21 @@ const ResidentialroadPage = () => {
                                                                     textShadow: alertIsTrue1 ? '1px 1px 2px white, 0 0 25px white, 0 0 5px white, 0 0 10px white' : '1px 1px 2px black, 0 0 25px black, 0 0 5px black, 0 0 10px black',
                                                                 }}
                                                             >
-                                                                {(residentialvoltage1 === "offline") || (residentialvoltage1 === "Offline") ? 'OFF' : 'ON'}
+                                                                {(kotipallivoltage1 === "offline") || (kotipallivoltage1 === "Offline") ? 'OFF' : 'ON'}
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {residentialvoltage1 === "offline" || residentialvoltage1 === "Offline" ? (
-                                                        <a href="https://maps.app.goo.gl/4JASs8FRg3vtXoBm6" target="_blank" rel="noopener noreferrer" className="fault__text">
-                                                            View Fault Location
-                                                        </a>
+                                                    {kotipallivoltage1 === "offline" || kotipallivoltage1 === "Offline" ? (
+                                                        <>
+                                                            <a
+                                                                href={`https://maps.google.com/?q=${latitudekotipalli1},${longitudekotipalli1}`}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className="fault__text"
+                                                            >
+                                                                View Fault Location
+                                                            </a>
+                                                        </>
                                                     ) : null}
                                                 </div>
                                             </div>
@@ -123,7 +154,7 @@ const ResidentialroadPage = () => {
                                         <li className="list-group-item text-center">
                                             <span className="input-label">Voltage</span>
                                             <Input
-                                                value={residentialvoltage2 || "offline" || "Offline"}
+                                                value={kotipallivoltage2 || "offline" || "Offline"}
                                                 type="text"
                                                 className="rainbow-p-around_medium text-center box"
                                                 disabled={true}
@@ -132,7 +163,7 @@ const ResidentialroadPage = () => {
                                         <li className="list-group-item text-center">
                                             <span className="input-label">Status</span>
                                             <Input
-                                                value={(residentialvoltage2 === "Offline" || residentialvoltage2 === "offline") ? "Not Working" : "Working"}
+                                                value={(kotipallivoltage2 === "Offline" || kotipallivoltage2 === "offline") ? "Not Working" : "Working"}
                                                 type="text"
                                                 className="rainbow-p-around_medium text-center box input__container"
                                                 disabled={true}
@@ -157,14 +188,21 @@ const ResidentialroadPage = () => {
                                                                     textShadow: alertIsTrue2 ? '1px 1px 2px white, 0 0 25px white, 0 0 5px white, 0 0 10px white' : '1px 1px 2px black, 0 0 25px black, 0 0 5px black, 0 0 10px black',
                                                                 }}
                                                             >
-                                                                {(residentialvoltage2 === "offline") || (residentialvoltage2 === "Offline") ? 'OFF' : 'ON'}
+                                                                {(kotipallivoltage2 === "offline") || (kotipallivoltage2 === "Offline") ? 'OFF' : 'ON'}
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {residentialvoltage2 === "offline" || residentialvoltage2 === "Offline" ? (
-                                                        <a href="https://maps.app.goo.gl/xi2KwEvo6Xyrtkk69" target="_blank" rel="noopener noreferrer" className="fault__text">
-                                                            View Fault Location
-                                                        </a>
+                                                    {kotipallivoltage2 === "offline" || kotipallivoltage2 === "Offline" ? (
+                                                        <>
+                                                            <a
+                                                                href={`https://maps.google.com/?q=${latitudekotipalli2},${longitudekotipalli2}`}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className="fault__text"
+                                                            >
+                                                                View Fault Location
+                                                            </a>
+                                                        </>
                                                     ) : null}
                                                 </div>
                                             </div>
@@ -193,7 +231,7 @@ const ResidentialroadPage = () => {
                                         <li className="list-group-item text-center">
                                             <span className="input-label">Voltage</span>
                                             <Input
-                                                value={residentialvoltage3 || "offline" || "Offline"}
+                                                value={kotipallivoltage3 || "offline" || "Offline"}
                                                 type="text"
                                                 className="rainbow-p-around_medium text-center box"
                                                 disabled={true}
@@ -202,7 +240,7 @@ const ResidentialroadPage = () => {
                                         <li className="list-group-item text-center">
                                             <span className="input-label">Status</span>
                                             <Input
-                                                value={(residentialvoltage3 === "Offline" || residentialvoltage3 === "offline") ? "Not Working" : "Working"}
+                                                value={(kotipallivoltage3 === "Offline" || kotipallivoltage3 === "offline") ? "Not Working" : "Working"}
                                                 type="text"
                                                 className="rainbow-p-around_medium text-center box input__container"
                                                 disabled={true}
@@ -227,12 +265,17 @@ const ResidentialroadPage = () => {
                                                                     textShadow: alertIsTrue3 ? '1px 1px 2px white, 0 0 25px white, 0 0 5px white, 0 0 10px white' : '1px 1px 2px black, 0 0 25px black, 0 0 5px black, 0 0 10px black',
                                                                 }}
                                                             >
-                                                                {(residentialvoltage3 === "offline") || (residentialvoltage3 === "Offline") ? 'OFF' : 'ON'}
+                                                                {(kotipallivoltage3 === "offline") || (kotipallivoltage3 === "Offline") ? 'OFF' : 'ON'}
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {residentialvoltage3 === "offline" || residentialvoltage3 === "Offline" ? (
-                                                        <a href="https://maps.app.goo.gl/Rs64tbWnXkVWoNYx8" target="_blank" rel="noopener noreferrer" className="fault__text">
+                                                    {kotipallivoltage3 === "offline" || kotipallivoltage3 === "Offline" ? (
+                                                        <a
+                                                            href={`https://maps.google.com/?q=${latitudekotipalli3},${longitudekotipalli3}`}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="fault__text"
+                                                        >
                                                             View Fault Location
                                                         </a>
                                                     ) : null}
@@ -241,6 +284,73 @@ const ResidentialroadPage = () => {
                                         </li>
                                     </ul>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Card>
+            <Card className="show__card__total">
+                <p className="para__residential">Overall Street Data</p>
+                <div className="row card__row">
+                    <div className="col-12">
+                        <div className="sub__box" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                            <div className="card">
+                                <ul className="list-group list-group-flush list">
+                                    <li className="list-group-item text-center">
+                                        <span className="input-label">Current</span>
+                                        <Input
+                                            value={kotipallicurrent}
+                                            type="text"
+                                            className="rainbow-p-around_medium text-center box"
+                                            disabled={true}
+                                        />
+                                    </li>
+                                    <li className="list-group-item text-center">
+                                        <span className="input-label">Power</span>
+                                        <Input
+                                            value={kotipallipower}
+                                            type="text"
+                                            className="rainbow-p-around_medium text-center box input__container"
+                                            disabled={true}
+                                        />
+                                    </li>
+                                    <li className="list-group-item text-center">
+                                        <span className="input-label">Active Power</span>
+                                        <Input
+                                            value={kotipalliactivepower}
+                                            type="text"
+                                            className="rainbow-p-around_medium text-center box"
+                                            disabled={true}
+                                        />
+                                    </li>
+                                    <li className="list-group-item text-center">
+                                        <span className="input-label">Reactive Power</span>
+                                        <Input
+                                            value={kotipallireactivepower}
+                                            type="text"
+                                            className="rainbow-p-around_medium text-center box"
+                                            disabled={true}
+                                        />
+                                    </li>
+                                    <li className="list-group-item text-center">
+                                        <span className="input-label">Power Factor</span>
+                                        <Input
+                                            value={kotipallipowerfactor}
+                                            type="text"
+                                            className="rainbow-p-around_medium text-center box"
+                                            disabled={true}
+                                        />
+                                    </li>
+                                    <li className="list-group-item text-center">
+                                        <span className="input-label">Frequency</span>
+                                        <Input
+                                            value={kotipallifrequency}
+                                            type="text"
+                                            className="rainbow-p-around_medium text-center box"
+                                            disabled={true}
+                                        />
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
